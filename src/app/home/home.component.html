@@ -1,0 +1,27 @@
+<app-page-header icon="home">
+    <h2>Home</h2>
+
+    <button routerLink="/history" mat-flat-button color="primary" class="action">
+        <mat-icon class="mr-2">history</mat-icon>
+        <span>View History</span>
+    </button>
+</app-page-header>
+
+<div style="padding: 0 20px">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Search User</mat-card-title>
+        </mat-card-header>
+        <form [formGroup]="searchForm" class="example-form">
+            <mat-card-content>
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="username" formControlName="username" type="text">
+                </mat-form-field>
+            </mat-card-content>
+
+        </form>
+        <mat-card-actions align="end">
+            <button mat-stroked-button color="accent" class="btn-block" (click)="searchUser()">Search</button>
+        </mat-card-actions>
+    </mat-card>
+</div>

@@ -1,0 +1,31 @@
+<app-page-header icon="history">
+    <h2>History </h2>
+
+    <button routerLink="/home" mat-flat-button color="primary" class="action">
+        <mat-icon class="mr-2">home</mat-icon>
+        <span>Go home</span>
+    </button>
+</app-page-header>
+
+
+
+
+<div style="padding: 0 20px">
+    <mat-card>
+        <div style="margin: 20px">
+            <mat-selection-list #history>
+                <mat-list-option *ngFor="let history of historyList; let i=index"
+                    [class.not-available]="history.resultType === 'fail'" [value]="history.timestamp">
+                    <span (click)="searchUser(history)">{{history.username}}</span>
+                </mat-list-option>
+            </mat-selection-list>
+        </div>
+
+        <mat-card-actions align="start" *ngIf="historyList.length">
+            <button mat-stroked-button color="accent" class="btn-block" (click)="deleteDelected(history)">Delete
+                Selected</button>
+            <button mat-stroked-button color="accent" class="btn-block" (click)="clearHistory()">Delete
+                Clear History</button>
+        </mat-card-actions>
+    </mat-card>
+</div>
