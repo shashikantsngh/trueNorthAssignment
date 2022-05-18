@@ -19,7 +19,7 @@ import { Menu } from './menu.model';
     </div>
   `,
   styleUrls: ['./layout.component.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LayoutComponent {
   opened = true;
@@ -33,26 +33,13 @@ export class LayoutComponent {
       title: 'Home',
       icon: 'home',
       link: '/home',
-      color: '#ff7f0e'
+      color: '#ff7f0e',
     },
     {
-      title: 'Statistics',
-      icon: 'bar_chart',
+      title: 'History',
+      icon: 'history',
+      link: '/history',
       color: '#ff7f0e',
-      subMenu: [
-        {
-          title: 'Sales',
-          icon: 'money',
-          link: '/sales',
-          color: '#ff7f0e'
-        },
-        {
-          title: 'Customers',
-          icon: 'people',
-          color: '#ff7f0e',
-          link: '/customers'
-        }
-      ]
-    }
+    },
   ];
 }
