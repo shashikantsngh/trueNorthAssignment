@@ -1,13 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { environment } from 'src/environments/environment';
 
+const API = 'https://api.github.com/users';
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AppService {
-
   private searchHistory: any[] = [];
 
   set setHistry(userData: any) {
@@ -23,14 +22,15 @@ export class AppService {
   }
 
   deleteHistory = (timestamp: number): void => {
-    const index = this.searchHistory.findIndex(d => d.timestamp === timestamp);
+    const index = this.searchHistory.findIndex(
+      (d) => d.timestamp === timestamp
+    );
     this.searchHistory.splice(index, 1);
-  }
+  };
 
-  constructor(private _http: HttpClient) { }
+  constructor(private _http: HttpClient) {}
 
   getUser = (username: string): Observable<any> => {
-    return this._http.get(`${environment.API}/${username}`);
-  }
-
+    return this._http.get(`${API}/${username}`);
+  };
 }
